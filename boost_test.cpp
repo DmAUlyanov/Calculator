@@ -1,4 +1,4 @@
-#define BOOST_TEST_MODULE boost_test_macro_overview
+п»ї#define BOOST_TEST_MODULE boost_test_macro_overview
 #include <boost/test/included/unit_test.hpp>
 
 #include <time.h>
@@ -78,7 +78,7 @@ BOOST_AUTO_TEST_CASE(GeneratorExpressionTest)
         double answer;
         string expression = SimpleExpressionGenerator(answer);
         string actual = Calculate(expression);
-        if(actual.compare(string("Деление на 0!")) != 0){
+        if(actual.compare(string("Р”РµР»РµРЅРёРµ РЅР° 0!")) != 0){
             if(abs(answer) < 10000000.0){
                 answer =(roundf(answer * 100)) / 100.0;
                 if(abs(answer) < 0.005) answer = 0;
@@ -87,7 +87,7 @@ BOOST_AUTO_TEST_CASE(GeneratorExpressionTest)
                 BOOST_TEST(actual.compare(expected.str()) == 0, expression <<" = " << expected.str() << " vs "<<actual);
             }
             else{
-                BOOST_TEST(actual.compare(string("Результат вычисления слишком большой по модулю")) == 0, expression <<" = " << answer <<" vs "<<actual);
+                BOOST_TEST(actual.compare(string("Р РµР·СѓР»СЊС‚Р°С‚ РІС‹С‡РёСЃР»РµРЅРёСЏ СЃР»РёС€РєРѕРј Р±РѕР»СЊС€РѕР№ РїРѕ РјРѕРґСѓР»СЋ")) == 0, expression <<" = " << answer <<" vs "<<actual);
             }
         }
 
@@ -101,7 +101,7 @@ BOOST_AUTO_TEST_CASE(SomeSpecialTests)
     BOOST_TEST(Calculate("-1 + 5 - 3").compare("1") == 0);
     BOOST_TEST(Calculate("-10 + (8*2.5) - (3/1.5)").compare("8") == 0);
     BOOST_TEST(Calculate("1 + (2 * (2.5 + 2.5 + (3-2)))-(3 / 1.5)").compare("11") == 0);
-    BOOST_TEST(Calculate("1.1 + 2.1 + abc").compare("Некорректный ввод, строка содержит недопустимое выражение abc") == 0);
+    BOOST_TEST(Calculate("1.1 + 2.1 + abc").compare("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ, СЃС‚СЂРѕРєР° СЃРѕРґРµСЂР¶РёС‚ РЅРµРґРѕРїСѓСЃС‚РёРјРѕРµ РІС‹СЂР°Р¶РµРЅРёРµ abc") == 0);
 }
 
 BOOST_AUTO_TEST_CASE(SomeSimpleTests)
@@ -112,22 +112,22 @@ BOOST_AUTO_TEST_CASE(SomeSimpleTests)
     BOOST_TEST(Calculate(" 1--- --- -2").compare("-1") == 0);
     BOOST_TEST(Calculate(" 1+++ +++ +2").compare("3") == 0);
     BOOST_TEST(Calculate("80.75*6.9").compare("557.18") == 0);
-    BOOST_TEST(Calculate("        0.1786868          ").compare("Некорректный ввод, строка содержит недопустимое выражение 0.1786868") == 0);
-    BOOST_TEST(Calculate("  (18827475.17)     ").compare("Некорректный ввод, строка содержит недопустимое выражение 18827475.17") == 0);
-    BOOST_TEST(Calculate("(2+2) - 5)").compare("Нарушен порядок скобок: закрывающая скобка обнаружена раньше открывающей") == 0);
-    BOOST_TEST(Calculate("(2+2) - (5").compare("Нарушен порядок скобок: не все скобки закрыты") == 0);
-    BOOST_TEST(Calculate("(2+2)+()").compare("Нарушен порядок скобок: закрывающая скобка обнаружена раньше выражения") == 0);
-    BOOST_TEST(Calculate("").compare("Неверно составленно выражение") == 0);
-    BOOST_TEST(Calculate("   ").compare("Неверно составленно выражение") == 0);
-    BOOST_TEST(Calculate("4 5").compare("Некорректный ввод, возможно пропущен бинарный оператор") == 0);
-    BOOST_TEST(Calculate("+").compare("Отсутсвует операнд для унарного +") == 0);
-    BOOST_TEST(Calculate("-").compare("Отсутсвует операнд для унарного -") == 0);
-    BOOST_TEST(Calculate("*").compare("Отсутсвуют операнды для *") == 0);
-    BOOST_TEST(Calculate("/").compare("Отсутсвуют операнды для /") == 0);
-    BOOST_TEST(Calculate("4+").compare("Отсутсвует второй операнд для бинарного +") == 0);
-    BOOST_TEST(Calculate("4-").compare("Отсутсвует второй операнд для бинарного -") == 0);
-    BOOST_TEST(Calculate("4*").compare("Отсутсвует второй операнд для *") == 0);
-    BOOST_TEST(Calculate("4/").compare("Отсутсвует второй операнд для /") == 0);
-    BOOST_TEST(Calculate("(2+2)/(2-2)").compare("Деление на 0!") == 0);
+    BOOST_TEST(Calculate("        0.1786868          ").compare("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ, СЃС‚СЂРѕРєР° СЃРѕРґРµСЂР¶РёС‚ РЅРµРґРѕРїСѓСЃС‚РёРјРѕРµ РІС‹СЂР°Р¶РµРЅРёРµ 0.1786868") == 0);
+    BOOST_TEST(Calculate("  (18827475.17)     ").compare("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ, СЃС‚СЂРѕРєР° СЃРѕРґРµСЂР¶РёС‚ РЅРµРґРѕРїСѓСЃС‚РёРјРѕРµ РІС‹СЂР°Р¶РµРЅРёРµ 18827475.17") == 0);
+    BOOST_TEST(Calculate("(2+2) - 5)").compare("РќР°СЂСѓС€РµРЅ РїРѕСЂСЏРґРѕРє СЃРєРѕР±РѕРє: Р·Р°РєСЂС‹РІР°СЋС‰Р°СЏ СЃРєРѕР±РєР° РѕР±РЅР°СЂСѓР¶РµРЅР° СЂР°РЅСЊС€Рµ РѕС‚РєСЂС‹РІР°СЋС‰РµР№") == 0);
+    BOOST_TEST(Calculate("(2+2) - (5").compare("РќР°СЂСѓС€РµРЅ РїРѕСЂСЏРґРѕРє СЃРєРѕР±РѕРє: РЅРµ РІСЃРµ СЃРєРѕР±РєРё Р·Р°РєСЂС‹С‚С‹") == 0);
+    BOOST_TEST(Calculate("(2+2)+()").compare("РќР°СЂСѓС€РµРЅ РїРѕСЂСЏРґРѕРє СЃРєРѕР±РѕРє: Р·Р°РєСЂС‹РІР°СЋС‰Р°СЏ СЃРєРѕР±РєР° РѕР±РЅР°СЂСѓР¶РµРЅР° СЂР°РЅСЊС€Рµ РІС‹СЂР°Р¶РµРЅРёСЏ") == 0);
+    BOOST_TEST(Calculate("").compare("РќРµРІРµСЂРЅРѕ СЃРѕСЃС‚Р°РІР»РµРЅРЅРѕ РІС‹СЂР°Р¶РµРЅРёРµ") == 0);
+    BOOST_TEST(Calculate("   ").compare("РќРµРІРµСЂРЅРѕ СЃРѕСЃС‚Р°РІР»РµРЅРЅРѕ РІС‹СЂР°Р¶РµРЅРёРµ") == 0);
+    BOOST_TEST(Calculate("4 5").compare("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ, РІРѕР·РјРѕР¶РЅРѕ РїСЂРѕРїСѓС‰РµРЅ Р±РёРЅР°СЂРЅС‹Р№ РѕРїРµСЂР°С‚РѕСЂ") == 0);
+    BOOST_TEST(Calculate("+").compare("РћС‚СЃСѓС‚СЃРІСѓРµС‚ РѕРїРµСЂР°РЅРґ РґР»СЏ СѓРЅР°СЂРЅРѕРіРѕ +") == 0);
+    BOOST_TEST(Calculate("-").compare("РћС‚СЃСѓС‚СЃРІСѓРµС‚ РѕРїРµСЂР°РЅРґ РґР»СЏ СѓРЅР°СЂРЅРѕРіРѕ -") == 0);
+    BOOST_TEST(Calculate("*").compare("РћС‚СЃСѓС‚СЃРІСѓСЋС‚ РѕРїРµСЂР°РЅРґС‹ РґР»СЏ *") == 0);
+    BOOST_TEST(Calculate("/").compare("РћС‚СЃСѓС‚СЃРІСѓСЋС‚ РѕРїРµСЂР°РЅРґС‹ РґР»СЏ /") == 0);
+    BOOST_TEST(Calculate("4+").compare("РћС‚СЃСѓС‚СЃРІСѓРµС‚ РІС‚РѕСЂРѕР№ РѕРїРµСЂР°РЅРґ РґР»СЏ Р±РёРЅР°СЂРЅРѕРіРѕ +") == 0);
+    BOOST_TEST(Calculate("4-").compare("РћС‚СЃСѓС‚СЃРІСѓРµС‚ РІС‚РѕСЂРѕР№ РѕРїРµСЂР°РЅРґ РґР»СЏ Р±РёРЅР°СЂРЅРѕРіРѕ -") == 0);
+    BOOST_TEST(Calculate("4*").compare("РћС‚СЃСѓС‚СЃРІСѓРµС‚ РІС‚РѕСЂРѕР№ РѕРїРµСЂР°РЅРґ РґР»СЏ *") == 0);
+    BOOST_TEST(Calculate("4/").compare("РћС‚СЃСѓС‚СЃРІСѓРµС‚ РІС‚РѕСЂРѕР№ РѕРїРµСЂР°РЅРґ РґР»СЏ /") == 0);
+    BOOST_TEST(Calculate("(2+2)/(2-2)").compare("Р”РµР»РµРЅРёРµ РЅР° 0!") == 0);
 }
 

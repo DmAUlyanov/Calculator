@@ -1,4 +1,4 @@
-#include <string>
+п»ї#include <string>
 #include <sstream>
 #include <stack>
 #include <map>
@@ -27,52 +27,52 @@ struct Operator {
 
 map <string, Operator> operationMap = {
     { "(", Operator(0,[](stack<double>& operandStack) {
-		return "Нарушен порядок скобок: не все скобки закрыты"; })},
+		return "РќР°СЂСѓС€РµРЅ РїРѕСЂСЏРґРѕРє СЃРєРѕР±РѕРє: РЅРµ РІСЃРµ СЃРєРѕР±РєРё Р·Р°РєСЂС‹С‚С‹"; })},
 	{ "+unary", Operator(9,[](stack<double>& operandStack) {
-		if (operandStack.empty()) return "Отсутсвует операнд для унарного +";
+		if (operandStack.empty()) return "РћС‚СЃСѓС‚СЃРІСѓРµС‚ РѕРїРµСЂР°РЅРґ РґР»СЏ СѓРЅР°СЂРЅРѕРіРѕ +";
 		double value1 = operandStack.top();
 		operandStack.pop();
 		operandStack.push(value1);
 		return ""; })},
 	{ "-unary", Operator(9,[](stack<double>& operandStack) {
-		if (operandStack.empty()) return "Отсутсвует операнд для унарного -";
+		if (operandStack.empty()) return "РћС‚СЃСѓС‚СЃРІСѓРµС‚ РѕРїРµСЂР°РЅРґ РґР»СЏ СѓРЅР°СЂРЅРѕРіРѕ -";
 		double value1 = operandStack.top();
 		operandStack.pop();
 		operandStack.push(-value1);
 		return ""; }) },
 	{ "+", Operator(1,[](stack<double>& operandStack) {
-		if (operandStack.empty()) return "Отсутсвуют операнды для бинарного +";
+		if (operandStack.empty()) return "РћС‚СЃСѓС‚СЃРІСѓСЋС‚ РѕРїРµСЂР°РЅРґС‹ РґР»СЏ Р±РёРЅР°СЂРЅРѕРіРѕ +";
 		double value1 = operandStack.top();
 		operandStack.pop();
-		if (operandStack.empty()) return "Отсутсвует второй операнд для бинарного +";
+		if (operandStack.empty()) return "РћС‚СЃСѓС‚СЃРІСѓРµС‚ РІС‚РѕСЂРѕР№ РѕРїРµСЂР°РЅРґ РґР»СЏ Р±РёРЅР°СЂРЅРѕРіРѕ +";
 		double value2 = operandStack.top();
 		operandStack.pop();
 		operandStack.push(value1 + value2);
 		return ""; }) },
 	{ "-", Operator(1,[](stack<double>& operandStack) {
-		if (operandStack.empty()) return "Отсутсвуют операнды для бинарного -";
+		if (operandStack.empty()) return "РћС‚СЃСѓС‚СЃРІСѓСЋС‚ РѕРїРµСЂР°РЅРґС‹ РґР»СЏ Р±РёРЅР°СЂРЅРѕРіРѕ -";
 		double value1 = operandStack.top();
 		operandStack.pop();
-		if (operandStack.empty()) return "Отсутсвует второй операнд для бинарного -";
+		if (operandStack.empty()) return "РћС‚СЃСѓС‚СЃРІСѓРµС‚ РІС‚РѕСЂРѕР№ РѕРїРµСЂР°РЅРґ РґР»СЏ Р±РёРЅР°СЂРЅРѕРіРѕ -";
 		double value2 = operandStack.top();
 		operandStack.pop();
 		operandStack.push(value2 - value1);
 		return ""; }) },
 	{ "*", Operator(2,[](stack<double>& operandStack) {
-		if (operandStack.empty()) return "Отсутсвуют операнды для *";
+		if (operandStack.empty()) return "РћС‚СЃСѓС‚СЃРІСѓСЋС‚ РѕРїРµСЂР°РЅРґС‹ РґР»СЏ *";
 		double value1 = operandStack.top();
 		operandStack.pop();
-		if (operandStack.empty()) return "Отсутсвует второй операнд для *";
+		if (operandStack.empty()) return "РћС‚СЃСѓС‚СЃРІСѓРµС‚ РІС‚РѕСЂРѕР№ РѕРїРµСЂР°РЅРґ РґР»СЏ *";
 		double value2 = operandStack.top();
 		operandStack.pop();
 		operandStack.push(value2 * value1);
 		return ""; }) },
 	{ "/", Operator(2,[](stack<double>& operandStack) {
-		if (operandStack.empty()) return "Отсутсвуют операнды для /";
+		if (operandStack.empty()) return "РћС‚СЃСѓС‚СЃРІСѓСЋС‚ РѕРїРµСЂР°РЅРґС‹ РґР»СЏ /";
 		double value1 = operandStack.top();
-		if(abs(value1) <= ZERO) return "Деление на 0!";
+		if(abs(value1) <= ZERO) return "Р”РµР»РµРЅРёРµ РЅР° 0!";
 		operandStack.pop();
-		if (operandStack.empty()) return "Отсутсвует второй операнд для /";
+		if (operandStack.empty()) return "РћС‚СЃСѓС‚СЃРІСѓРµС‚ РІС‚РѕСЂРѕР№ РѕРїРµСЂР°РЅРґ РґР»СЏ /";
 		double value2 = operandStack.top();
 		operandStack.pop();
 		operandStack.push(value2 / value1);
@@ -92,12 +92,12 @@ bool _isSeparator(char c) {
 }
 
 
-const string ERROR1 = "Некорректный ввод, строка содержит недопустимое выражение ";
-const string ERROR2 = "Нарушен порядок скобок: закрывающая скобка обнаружена раньше выражения";
-const string ERROR3 = "Нарушен порядок скобок: закрывающая скобка обнаружена раньше открывающей";
-const string ERROR4 = "Некорректный ввод, возможно пропущен бинарный оператор";
-const string ERROR5 = "Результат вычисления слишком большой по модулю";
-const string ERROR6 = "Неверно составленно выражение";
+const string ERROR1 = "РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ, СЃС‚СЂРѕРєР° СЃРѕРґРµСЂР¶РёС‚ РЅРµРґРѕРїСѓСЃС‚РёРјРѕРµ РІС‹СЂР°Р¶РµРЅРёРµ ";
+const string ERROR2 = "РќР°СЂСѓС€РµРЅ РїРѕСЂСЏРґРѕРє СЃРєРѕР±РѕРє: Р·Р°РєСЂС‹РІР°СЋС‰Р°СЏ СЃРєРѕР±РєР° РѕР±РЅР°СЂСѓР¶РµРЅР° СЂР°РЅСЊС€Рµ РІС‹СЂР°Р¶РµРЅРёСЏ";
+const string ERROR3 = "РќР°СЂСѓС€РµРЅ РїРѕСЂСЏРґРѕРє СЃРєРѕР±РѕРє: Р·Р°РєСЂС‹РІР°СЋС‰Р°СЏ СЃРєРѕР±РєР° РѕР±РЅР°СЂСѓР¶РµРЅР° СЂР°РЅСЊС€Рµ РѕС‚РєСЂС‹РІР°СЋС‰РµР№";
+const string ERROR4 = "РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ, РІРѕР·РјРѕР¶РЅРѕ РїСЂРѕРїСѓС‰РµРЅ Р±РёРЅР°СЂРЅС‹Р№ РѕРїРµСЂР°С‚РѕСЂ";
+const string ERROR5 = "Р РµР·СѓР»СЊС‚Р°С‚ РІС‹С‡РёСЃР»РµРЅРёСЏ СЃР»РёС€РєРѕРј Р±РѕР»СЊС€РѕР№ РїРѕ РјРѕРґСѓР»СЋ";
+const string ERROR6 = "РќРµРІРµСЂРЅРѕ СЃРѕСЃС‚Р°РІР»РµРЅРЅРѕ РІС‹СЂР°Р¶РµРЅРёРµ";
 
 
 string ExtractOpenParenthesisAndUnaryOperators(string& statement, string::iterator& it, stack<string>& operationStack) {
@@ -276,4 +276,3 @@ string Calculate(string statement) {
 		return ERROR6;
 	}
 }
-

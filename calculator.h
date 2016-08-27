@@ -1,1 +1,1 @@
-std::string Calculate(string statement);
+﻿std::string Calculate(string statement);
